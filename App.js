@@ -1,20 +1,72 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import Home from './pages/Home';
+import Visits from './pages/Visits';
+import Favorites from './pages/Favorites';
+import { Colors } from './utils/StyleConstants';
+
+const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+function TabNavigator() {
+  return (
+    <Tab.Navigator screenOptions={() => ({
+      tabBarStyle: {
+        backgroundColor: Colors.background,
+        borderWidth: null
+      }
+    })} >
+      <Tab.Screen
+        options={{
+          headerShown: false
+        }}
+        name="Home"
+        component={Home}
+      />
+      <Tab.Screen
+        options={{
+          headerShown: false
+        }}
+        name="Visits"
+        component={Visits}
+      />
+      <Tab.Screen
+        options={{
+          headerShown: false
+        }}
+        name="Favorites"
+        component={Favorites}
+      />
+    </Tab.Navigator>
+  );
+}
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.safeArea}>
+      <NavigationContainer>
+        <StatusBar style="auto" />
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Main"
+            component={TabNavigator}
+            options={{ headerShown: false, gestureEnabled: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 10,
+    backgroundColor: Colors.background,
   },
 });

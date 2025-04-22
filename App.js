@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from './pages/Home';
 import Visits from './pages/Visits';
 import Favorites from './pages/Favorites';
-import { Colors } from './utils/StyleConstants';
+import { CommonStyles } from './utils/StyleConstants';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -17,7 +17,7 @@ function TabNavigator() {
   return (
     <Tab.Navigator screenOptions={() => ({
       tabBarStyle: {
-        backgroundColor: Colors.background,
+        backgroundColor: CommonStyles.background,
         borderWidth: null
       }
     })} >
@@ -67,6 +67,6 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     padding: 10,
-    backgroundColor: Colors.background,
+    backgroundColor: CommonStyles.background,
   },
 });

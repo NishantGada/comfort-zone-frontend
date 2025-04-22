@@ -1,8 +1,9 @@
-export const Colors = {
-	background: "white",
+export const CommonStyles = {
+	background: "#EEEEEE",
 	heading: "white",
 	subHeading: "white",
 	content: "white",
 	border: "white",
-	horizontalTabBorderColor: "white"
+	horizontalTabBorderColor: "white",
+	sectionHeading: 22
 };

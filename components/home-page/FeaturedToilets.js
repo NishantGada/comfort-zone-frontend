@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import ToiletCardCarousel from './ToiletCardsCarousel';
 
@@ -38,8 +38,15 @@ export default function FeaturedToilets() {
 
 	return (
 		<View>
-			<Text>FeaturedToilets</Text>
+			<Text style={styles.featuredToiletsHeading}>Featured Toilets</Text>
 			<ToiletCardCarousel data={featuredStationsInSelectedCity} />
 		</View>
 	)
 }
+
+const styles = StyleSheet.create({
+	featuredToiletsHeading: {
+		fontSize: 22,
+		fontWeight: 'bold',
+	},
+})
